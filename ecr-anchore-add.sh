@@ -1,6 +1,7 @@
 #!/bin/sh
 
-#Script generates a list of all images in an ECR registry in AWS then generates the commands to Add them to Anchore
+# Script generates a list of all images in an ECR registry in AWS then generates the commands to Add them to Anchore
+# Run on chron or in a pipeline to keep Anchore up to date and monitoring all new images as they're added to ECR
 
 # Set variables
 profile=
