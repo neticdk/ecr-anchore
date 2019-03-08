@@ -24,7 +24,7 @@ do
     shift
     for tags; do
         echo "$tags" | sed "s/^/anchore-cli image vuln $ecrid.dkr.ecr.$region.amazonaws.com\//" | sed s'/$/ all/' \
-	          | sh -i | aws s3 cp - s3://$bucket/$tags.txt
+	          | sh -i | awk '{$1=$1}1' OFS="," | tail -n +2 | aws s3 cp - s3://$bucket/$tags.csv
     done
 
 done
